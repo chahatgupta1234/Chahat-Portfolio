@@ -36,18 +36,7 @@ export const experiences = [
     ],
     stack: ["Node.js", "TypeScript", "PostgreSQL", "Prisma", "Redis/BullMQ", "Slack Bolt SDK", "Azure OpenAI", "Next.js"],
   },
-  {
-    period: "Jun 2024 – Jan 2025",
-    company: "Soul AI",
-    badge: { text: "Internship", variant: "blue" },
-    role: "AI Developer Intern",
-    points: [
-      "Worked on <strong>LLM fine-tuning pipelines</strong> using advanced training techniques (LoRA, PEFT) on domain-specific datasets.",
-      "Built data preprocessing and evaluation tooling in Python, reducing pipeline iteration time significantly.",
-      "Developed SQL-driven analytics to measure model performance deltas across training runs.",
-    ],
-    stack: ["Python", "LLM Fine-tuning", "SQL", "JavaScript"],
-  },
+  
   {
     period: "Jun – Jul 2024",
     company: "IBM SkillsBuild",
