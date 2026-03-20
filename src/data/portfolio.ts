@@ -4,8 +4,8 @@ export const meta = {
   email: "chahatnit@gmail.com",
   phone: "+91-6395770326",
   location: "Meerut, UP · Open to remote & hybrid",
-  github: "https://github.com/chahatgupta",
-  linkedin: "https://linkedin.com/in/chahatgupta",
+  github: "https://github.com/chahatgupta1234",
+  linkedin: "https://www.linkedin.com/in/chahat-nit/",
   tagline: "I build scalable backend systems that handle real traffic.",
   bio: [
     "I'm Chahat — a backend-focused engineer who thinks in systems. Currently an SRE & Backend Engineer at Yellow.ai, where I shipped a centralized Slack automation middleware that replaced 12+ fragile legacy workflows.",
