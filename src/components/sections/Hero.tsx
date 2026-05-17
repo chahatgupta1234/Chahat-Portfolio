@@ -1,96 +1,131 @@
-"use client";
-import { useEffect, useRef } from "react";
-import { stats } from "@/data/portfolio";
-
-const roles = [
-  "Backend Engineer · Systems Thinker · MCA @ NIT Bhopal",
-  "API Design · PostgreSQL · Node.js · Distributed Systems",
-  "SRE · Performance Engineering · LLM Integration",
-];
+import {
+  ArrowUpRight,
+  BrainCircuit,
+  BriefcaseBusiness,
+  Code2,
+  Database,
+  Mail,
+  MapPin,
+  ServerCog,
+} from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import { heroMetrics, profile, proofPoints, targetRoles } from "@/data/portfolio";
 
 export default function Hero() {
-  const roleRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    let ri = 0, ci = roles[0].length, deleting = true;
-    const el = roleRef.current;
-    if (!el) return;
-    el.textContent = roles[0];
-
-    const tick = () => {
-      const target = roles[ri];
-      if (!deleting) {
-        ci++;
-        el.textContent = target.slice(0, ci);
-        if (ci === target.length) { deleting = true; setTimeout(tick, 2400); return; }
-      } else {
-        ci--;
-        el.textContent = target.slice(0, ci);
-        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-      }
-      setTimeout(tick, deleting ? 28 : 48);
-    };
-
-    const t = setTimeout(tick, 1800);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <section
-      id="hero"
-      className="relative z-10 min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-10 pt-24 pb-16"
-    >
-      {/* Available badge */}
-      <div className="inline-flex items-center gap-2 font-mono text-xs text-[var(--accent)] bg-[var(--accent-dim)] border border-[rgba(0,229,160,0.2)] rounded-full px-4 py-1.5 mb-8 w-fit">
-        <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full animate-pulse-dot" />
-        Available for new opportunities
-      </div>
+    <section id="hero" className="section-shell pt-28 md:pt-32">
+      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.72fr)] xl:gap-14">
+        <div>
+          <Reveal>
+            <div className="mb-6 flex flex-wrap items-center gap-2">
+              <span className="chip border-[color-mix(in_srgb,var(--accent)_42%,var(--border))] text-[var(--accent)]">
+                <span className="accent-dot" />
+                Yellow.ai Software Engineer
+              </span>
+              <span className="chip">{profile.education}</span>
+            </div>
+          </Reveal>
 
-      {/* Heading */}
-      <h1 className="font-head font-black leading-none tracking-tight text-[var(--text)] mb-3 text-[clamp(3rem,7vw,6.5rem)]">
-        Chahat<br />
-        <span className="text-[var(--accent)]">Gupta.</span>
-      </h1>
+          <Reveal delay={0.05}>
+            <h1 className="max-w-4xl font-head text-balance text-[clamp(2.85rem,5.15vw,5.8rem)] font-[780] leading-[0.93] tracking-normal text-[var(--text)]">
+              Backend engineer building production AI systems.
+            </h1>
+          </Reveal>
 
-      {/* Typewriter role */}
-      <p className="font-mono text-[var(--text-2)] mb-7 text-[clamp(0.9rem,2vw,1.1rem)] tracking-wide">
-        <span ref={roleRef} />
-        <span className="hero-cursor" />
-      </p>
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-8 text-[var(--text-2)] md:text-lg">
+              {profile.subhead}
+            </p>
+          </Reveal>
 
-      {/* Description */}
-      <p className="text-[var(--text-2)] max-w-xl mb-12 text-lg leading-relaxed">
-        I build <strong className="text-[var(--text)] font-medium">scalable backend systems</strong> that handle
-        real traffic — from distributed Slack automation handling{" "}
-        <strong className="text-[var(--text)] font-medium">12+ enterprise workflows</strong> to APIs optimized
-        for <strong className="text-[var(--text)] font-medium">50% fewer DB hits</strong>. I care about
-        architecture, not just code that works.
-      </p>
+          <Reveal delay={0.15}>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {targetRoles.map((role) => (
+                <span key={role} className="chip">
+                  {role}
+                </span>
+              ))}
+            </div>
+          </Reveal>
 
-      {/* CTAs */}
-      <div className="flex gap-4 flex-wrap mb-20">
-        <a
-          href="#projects"
-          className="font-mono text-sm px-7 py-3 bg-[var(--accent)] text-black font-medium rounded-lg hover:opacity-85 hover:-translate-y-0.5 transition-all duration-150 tracking-wider"
-        >
-          View my work
-        </a>
-        <a
-          href="mailto:chahatnit@gmail.com"
-          className="font-mono text-sm px-7 py-3 border border-[var(--border-h)] text-[var(--text-2)] rounded-lg hover:border-[var(--text-3)] hover:text-[var(--text)] transition-all duration-200 tracking-wider"
-        >
-          Get in touch
-        </a>
-      </div>
+          <Reveal delay={0.2}>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="#case-studies"
+                className="inline-flex items-center gap-2 rounded-md bg-[var(--text)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition-transform hover:-translate-y-0.5"
+              >
+                View case studies
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                className="inline-flex items-center gap-2 rounded-md border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition-colors hover:border-[var(--text-3)]"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Start a conversation
+              </a>
+            </div>
+          </Reveal>
 
-      {/* Stats */}
-      <div className="flex gap-12 flex-wrap pt-10 border-t border-[var(--border)]">
-        {stats.map((s) => (
-          <div key={s.label} className="flex flex-col gap-1">
-            <span className="font-head font-black text-4xl text-[var(--text)]">{s.num}</span>
-            <span className="font-mono text-[10px] text-[var(--text-3)] tracking-widest uppercase">{s.label}</span>
+          <Reveal delay={0.25}>
+            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm text-[var(--text-3)]">
+              <a className="inline-flex items-center gap-2 hover:text-[var(--text)]" href={profile.github} target="_blank" rel="noreferrer">
+                <Code2 className="h-4 w-4" aria-hidden="true" />
+                GitHub
+              </a>
+              <a className="inline-flex items-center gap-2 hover:text-[var(--text)]" href={profile.linkedin} target="_blank" rel="noreferrer">
+                <BriefcaseBusiness className="h-4 w-4" aria-hidden="true" />
+                LinkedIn
+              </a>
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                {profile.location} · {profile.mobility}
+              </span>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.14} className="lg:sticky lg:top-24">
+          <div className="surface-card overflow-hidden lg:max-w-[520px]">
+            <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-2.5">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent-4)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent-3)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
+              </div>
+              <span className="font-mono text-[11px] text-[var(--text-3)]">production-signal.ts</span>
+            </div>
+
+            <div className="p-4">
+              <div className="grid gap-2.5 sm:grid-cols-2">
+                {heroMetrics.map((metric) => (
+                  <div key={metric.label} className="subtle-card p-3.5">
+                    <p className="font-head text-2xl font-[760] leading-none text-[var(--text)] md:text-3xl">{metric.value}</p>
+                    <p className="mt-1.5 text-sm font-semibold leading-5 text-[var(--text)]">{metric.label}</p>
+                    <p className="mt-1 text-xs leading-5 text-[var(--text-3)]">{metric.context}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 grid gap-2.5">
+                {proofPoints.map((point, index) => {
+                  const Icon = [BrainCircuit, ServerCog, Database, BriefcaseBusiness][index];
+                  return (
+                    <div key={point.label} className="flex gap-3 rounded-md border border-[var(--border)] bg-[var(--bg-2)] p-3">
+                      <div className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--accent)]">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold leading-5 text-[var(--text)]">{point.label}</h3>
+                        <p className="mt-1 text-xs leading-5 text-[var(--text-3)]">{point.proof}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        ))}
+        </Reveal>
       </div>
     </section>
   );

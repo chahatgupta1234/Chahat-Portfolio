@@ -1,55 +1,76 @@
-import { mindset } from "@/data/portfolio";
+import { Activity, Braces, Gauge, Route, ShieldCheck } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { operatingPrinciples } from "@/data/portfolio";
+
+const principleIcons = [Braces, Activity, Route, Gauge];
 
 export default function Mindset() {
   return (
-    <section id="mindset" className="relative z-10 max-w-6xl mx-auto px-10 py-24">
-      <div className="flex items-center gap-2 font-mono text-xs text-[var(--accent)] tracking-widest uppercase mb-3 reveal">
-        <span className="w-6 h-px bg-[var(--accent)]" />
-        Engineering Mindset
-      </div>
-      <h2 className="font-head font-black text-[clamp(2rem,4vw,3rem)] text-[var(--text)] mb-3 reveal">
-        How I think about<br />systems.
-      </h2>
-      <p className="text-[var(--text-2)] text-base mb-14 reveal max-w-lg">
-        The mental models that guide my decisions when building backend systems.
-      </p>
+    <section id="principles" className="section-shell">
+      <SectionHeading
+        eyebrow="Engineering principles"
+        title="How Chahat thinks when systems have to survive production."
+        description="The common pattern across the work: define contracts early, keep failures visible, use AI inside real workflows, and optimize the repeated expensive path."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-        {mindset.map((m, i) => (
-          <div
-            key={m.num}
-            className={`reveal reveal-delay-${i % 2 === 0 ? 1 : 2} bg-[var(--bg-2)] border border-[var(--border)] rounded-2xl p-8 hover:border-[var(--border-h)] transition-colors duration-200 group relative overflow-hidden`}
-          >
-            <div className="absolute bottom-0 right-0 w-24 h-24 bg-radial-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            <div className="font-mono text-5xl font-light text-[var(--border-h)] leading-none mb-5">{m.num}</div>
-            <h3 className="font-head font-bold text-lg text-[var(--text)] mb-2">{m.title}</h3>
-            <p className="text-sm text-[var(--text-2)] leading-relaxed">{m.desc}</p>
-          </div>
-        ))}
+      <div className="grid gap-5 lg:grid-cols-4">
+        {operatingPrinciples.map((principle, index) => {
+          const Icon = principleIcons[index];
+          return (
+            <Reveal key={principle.title} delay={index * 0.04}>
+              <article className="surface-card h-full p-6" data-accent={index % 2 === 0 ? "emerald" : "cyan"}>
+                <div className="mb-8 flex items-center justify-between">
+                  <div className="grid h-10 w-10 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--local-accent)]">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <span className="font-mono text-xs text-[var(--text-3)]">{String(index + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="font-head text-xl font-[740] leading-tight text-[var(--text)]">{principle.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--text-2)]">{principle.detail}</p>
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
 
-      {/* Terminal */}
-      <div className="reveal bg-[var(--bg-2)] border border-[var(--border)] rounded-2xl overflow-hidden">
-        <div className="flex items-center gap-2 px-4 py-3 bg-[var(--surface)] border-b border-[var(--border)]">
-          <span className="w-2.5 h-2.5 bg-[#ff5c5c] rounded-full" />
-          <span className="w-2.5 h-2.5 bg-[#f0c040] rounded-full" />
-          <span className="w-2.5 h-2.5 bg-[var(--accent)] rounded-full" />
-          <span className="font-mono text-[10px] text-[var(--text-3)] ml-auto tracking-wider">chahat@dev ~ debugging-philosophy</span>
-        </div>
-        <div className="p-6 font-mono text-sm leading-8">
-          <div className="flex gap-3"><span className="text-[var(--accent)]">$</span><span className="text-[var(--text)]"> cat engineering_principles.json</span></div>
-          <div className="text-[var(--text-2)] pl-6">{"{"}</div>
-          <div className="text-[var(--text-2)] pl-6">&nbsp;&nbsp;<span className="text-[var(--blue)]">"first_principle"</span>: <span className="text-[var(--yellow)]">"read the error, all of it"</span>,</div>
-          <div className="text-[var(--text-2)] pl-6">&nbsp;&nbsp;<span className="text-[var(--blue)]">"database"</span>: <span className="text-[var(--yellow)]">"explain analyze before every optimization"</span>,</div>
-          <div className="text-[var(--text-2)] pl-6">&nbsp;&nbsp;<span className="text-[var(--blue)]">"api_design"</span>: <span className="text-[var(--yellow)]">"conservative in what you send, liberal in what you accept"</span>,</div>
-          <div className="text-[var(--text-2)] pl-6">&nbsp;&nbsp;<span className="text-[var(--blue)]">"caching"</span>: <span className="text-[var(--yellow)]">"invalidation is a feature, not a footnote"</span></div>
-          <div className="text-[var(--text-2)] pl-6">{"}"}</div>
-          <div className="flex gap-3 mt-3">
-            <span className="text-[var(--accent)]">$</span>
-            <span className="text-[var(--text-3)]"># currently leveling up: distributed systems · AWS · advanced system design</span>
+      <Reveal delay={0.12}>
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="surface-card overflow-hidden">
+            <div className="border-b border-[var(--border)] px-5 py-4">
+              <p className="font-mono text-xs uppercase text-[var(--text-3)]">Architecture loop</p>
+            </div>
+            <div className="grid gap-3 p-5 sm:grid-cols-4">
+              {["Contract", "Validation", "Observability", "Feedback"].map((step, index) => (
+                <div key={step} className="relative rounded-md border border-[var(--border)] bg-[var(--bg-2)] p-4">
+                  <span className="font-mono text-[10px] text-[var(--text-3)]">0{index + 1}</span>
+                  <p className="mt-7 text-sm font-semibold text-[var(--text)]">{step}</p>
+                  {index < 3 ? (
+                    <span className="absolute right-[-14px] top-1/2 hidden h-px w-7 bg-[var(--accent)] sm:block" />
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="surface-card p-6">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--accent-2)]">
+                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="font-mono text-xs uppercase text-[var(--text-3)]">Hiring signal</p>
+                <h3 className="font-head text-2xl font-[740] text-[var(--text)]">Owns the unglamorous parts</h3>
+              </div>
+            </div>
+            <p className="text-sm leading-7 text-[var(--text-2)]">
+              The work emphasizes the parts that senior engineers care about in review: API versioning, auth boundaries,
+              schema migrations, observability, rate limits, retries, indexed query paths, and incident recovery under
+              live production pressure.
+            </p>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
