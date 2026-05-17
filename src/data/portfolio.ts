@@ -68,9 +68,9 @@ export const profile = {
 
 export const navigation = [
   { href: "#skills", label: "Skills" },
+  { href: "#case-studies", label: "Case Studies" },
   { href: "#signal", label: "Signal" },
   { href: "#experience", label: "Experience" },
-  { href: "#case-studies", label: "Case Studies" },
   { href: "#contact", label: "Contact" },
 ];
 
