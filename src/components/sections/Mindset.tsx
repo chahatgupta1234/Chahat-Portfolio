@@ -1,7 +1,7 @@
 import { Activity, Braces, Gauge, Route, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { operatingPrinciples } from "@/data/portfolio";
+import { engineeringPrinciplesJson, operatingPrinciples } from "@/data/portfolio";
 
 const principleIcons = [Braces, Activity, Route, Gauge];
 
@@ -36,20 +36,30 @@ export default function Mindset() {
 
       <Reveal delay={0.12}>
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="surface-card overflow-hidden">
-            <div className="border-b border-[var(--border)] px-5 py-4">
-              <p className="font-mono text-xs uppercase text-[var(--text-3)]">Architecture loop</p>
+          <div className="surface-card overflow-hidden bg-[#0b0f14] text-[#e6edf6]">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+              </div>
+              <p className="font-mono text-xs text-slate-500">chahat@dev ~ engineering_principles.json</p>
             </div>
-            <div className="grid gap-3 p-5 sm:grid-cols-4">
-              {["Contract", "Validation", "Observability", "Feedback"].map((step, index) => (
-                <div key={step} className="relative rounded-md border border-[var(--border)] bg-[var(--bg-2)] p-4">
-                  <span className="font-mono text-[10px] text-[var(--text-3)]">0{index + 1}</span>
-                  <p className="mt-7 text-sm font-semibold text-[var(--text)]">{step}</p>
-                  {index < 3 ? (
-                    <span className="absolute right-[-14px] top-1/2 hidden h-px w-7 bg-[var(--accent)] sm:block" />
-                  ) : null}
-                </div>
-              ))}
+            <div className="p-5 font-mono text-sm leading-8">
+              <p>
+                <span className="text-emerald-400">$</span>{" "}
+                <span className="text-slate-200">cat engineering_principles.json</span>
+              </p>
+              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap text-slate-300">
+{`{
+${Object.entries(engineeringPrinciplesJson)
+  .map(([key, value]) => `  "${key}": "${value}"`)
+  .join(",\n")}
+}`}
+              </pre>
+              <p className="mt-4 text-slate-500">
+                <span className="text-emerald-400">$</span> # currently leveling up: distributed systems · AWS · advanced system design
+              </p>
             </div>
           </div>
 

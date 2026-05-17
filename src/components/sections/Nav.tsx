@@ -6,24 +6,19 @@ import CommandPalette from "@/components/CommandPalette";
 import { navigation, profile } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
-function getInitialTheme() {
-  if (typeof window === "undefined") return false;
-
-  const saved = window.localStorage.getItem("theme");
-  if (saved) return saved === "light";
-
-  return window.matchMedia("(prefers-color-scheme: light)").matches;
+function getInitialDarkMode() {
+  return false;
 }
 
 export default function Nav() {
-  const [active, setActive] = useState("signal");
+  const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [isLight, setIsLight] = useState(getInitialTheme);
+  const [isDark, setIsDark] = useState(getInitialDarkMode);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("light", isLight);
-  }, [isLight]);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   useEffect(() => {
     const sections = navigation
@@ -48,10 +43,9 @@ export default function Nav() {
   }, []);
 
   const toggleTheme = () => {
-    const next = !isLight;
-    setIsLight(next);
-    document.documentElement.classList.toggle("light", next);
-    window.localStorage.setItem("theme", next ? "light" : "dark");
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
   };
 
   return (
@@ -59,7 +53,7 @@ export default function Nav() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] backdrop-blur-xl">
         <nav className="mx-auto flex h-16 w-[min(1180px,calc(100%_-_28px))] items-center justify-between gap-4">
           <a href="#hero" className="group flex items-center gap-3" aria-label="Chahat Gupta home">
             <span className="grid h-8 w-8 place-items-center rounded-md border border-[var(--border-strong)] bg-[var(--surface)] font-head text-sm font-black text-[var(--text)]">
@@ -103,9 +97,9 @@ export default function Nav() {
               type="button"
               onClick={toggleTheme}
               className="grid h-9 w-9 place-items-center rounded-md border border-[var(--border)] bg-[var(--surface)] text-[var(--text-2)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text)]"
-              aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {isLight ? <Moon className="h-4 w-4" aria-hidden="true" /> : <Sun className="h-4 w-4" aria-hidden="true" />}
+              {isDark ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
             </button>
             <a
               href={`mailto:${profile.email}`}

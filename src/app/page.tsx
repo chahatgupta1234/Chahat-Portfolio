@@ -47,10 +47,10 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
+        <Skills />
         <About />
         <Experience />
         <Projects />
-        <Skills />
         <Mindset />
         <Contact />
       </main>

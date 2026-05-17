@@ -67,10 +67,10 @@ export const profile = {
 };
 
 export const navigation = [
+  { href: "#skills", label: "Skills" },
   { href: "#signal", label: "Signal" },
   { href: "#experience", label: "Experience" },
   { href: "#case-studies", label: "Case Studies" },
-  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -570,6 +570,64 @@ export const skillGroups = [
     ],
     proof: "JWT dbId optimization, Edith/Pulse API validation, Clerk org authorization, response field hygiene.",
   },
+];
+
+export const skillFluency = [
+  {
+    title: "Backend",
+    skills: [
+      { name: "Node.js / Express", level: 90 },
+      { name: "REST API Design", level: 88 },
+      { name: "TypeScript", level: 84 },
+      { name: "Rate Limiting / Retry Logic", level: 82 },
+      { name: "System Design", level: 76 },
+    ],
+  },
+  {
+    title: "Data & Storage",
+    skills: [
+      { name: "PostgreSQL", level: 88 },
+      { name: "Prisma ORM", level: 86 },
+      { name: "Schema Design", level: 84 },
+      { name: "Indexing / Query Optimization", level: 82 },
+      { name: "MongoDB / Mongoose", level: 78 },
+    ],
+  },
+  {
+    title: "AI Product Systems",
+    skills: [
+      { name: "LangGraph", level: 82 },
+      { name: "Azure OpenAI / GPT-4o", level: 84 },
+      { name: "RAG Pipelines", level: 80 },
+      { name: "FastMCP Tool Servers", level: 78 },
+      { name: "LLM Validation", level: 76 },
+    ],
+  },
+  {
+    title: "Infra & Reliability",
+    skills: [
+      { name: "Kubernetes Debugging", level: 76 },
+      { name: "Pino / AsyncLocalStorage", level: 82 },
+      { name: "AWS S3 Presigned URLs", level: 80 },
+      { name: "OpenSearch Log Search", level: 76 },
+      { name: "Slack Bolt SDK", level: 88 },
+    ],
+  },
+];
+
+export const engineeringPrinciplesJson = {
+  first_principle: "read the error, all of it",
+  database: "index the path users hit repeatedly",
+  api_design: "contracts before handlers",
+  reliability: "make the failure visible before optimizing",
+  ai: "use LLMs where they remove operational drag",
+};
+
+export const roleTicker = [
+  "Backend Engineer · TypeScript · PostgreSQL · Production APIs",
+  "Applied AI Engineer · LangGraph · FastMCP · RAG · Azure OpenAI",
+  "Product Engineer · Next.js · Internal Tools · Slack Automation",
+  "Reliability-minded builder · Logs · Retries · Rate limits · Auth",
 ];
 
 export const achievements = [

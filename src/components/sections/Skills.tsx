@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { achievements, skillGroups } from "@/data/portfolio";
+import { achievements, skillFluency, skillGroups } from "@/data/portfolio";
 
 const groupIcons = [BrainCircuit, ServerCog, Code2, Database, Cloud, LockKeyhole];
 
@@ -23,6 +23,41 @@ export default function Skills() {
         title="A stack organized around systems, not buzzwords."
         description="The skill map is grouped by the kinds of problems Chahat has actually shipped: AI workflows, backend contracts, product surfaces, data models, infrastructure, and security."
       />
+
+      <Reveal>
+        <div className="mb-6 grid gap-4 lg:grid-cols-4">
+          {skillFluency.map((group, index) => {
+            const Icon = groupIcons[index % groupIcons.length];
+            return (
+              <article key={group.title} className="surface-card p-5" data-accent={index % 2 === 0 ? "emerald" : "cyan"}>
+                <div className="mb-5 flex items-center gap-3">
+                  <div className="grid h-9 w-9 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--local-accent)]">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-head text-lg font-[740] text-[var(--text)]">{group.title}</h3>
+                </div>
+
+                <div className="space-y-4">
+                  {group.skills.map((skill) => (
+                    <div key={skill.name}>
+                      <div className="mb-1.5 flex items-center justify-between gap-3">
+                        <span className="text-sm text-[var(--text-2)]">{skill.name}</span>
+                        <span className="font-mono text-[10px] text-[var(--text-3)]">{skill.level}</span>
+                      </div>
+                      <div className="h-1.5 overflow-hidden rounded-full bg-[var(--surface-3)]">
+                        <div
+                          className="h-full rounded-full bg-[var(--local-accent)]"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </Reveal>
 
       <div className="grid gap-5 lg:grid-cols-2">
         {skillGroups.map((group, index) => {

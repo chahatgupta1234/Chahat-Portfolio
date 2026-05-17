@@ -3,6 +3,32 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --bg-2: #eef2f7;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --surface-3: #e7edf5;
+  --border: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --text: #101828;
+  --text-2: #344054;
+  --text-3: #667085;
+  --muted: #98a2b3;
+  --accent: #0f9f6e;
+  --accent-2: #2563eb;
+  --accent-3: #c47a08;
+  --accent-4: #d63855;
+  --accent-5: #7c3aed;
+  --shadow: 0 24px 80px rgba(16, 24, 40, 0.12);
+  --shadow-soft: 0 14px 42px rgba(16, 24, 40, 0.08);
+  --radius: 8px;
+  --font-head: var(--font-inter-tight);
+  --font-mono: var(--font-jetbrains);
+  --font-body: var(--font-inter);
+}
+
+html.dark {
   color-scheme: dark;
   --bg: #08090b;
   --bg-2: #0d0f12;
@@ -22,27 +48,6 @@
   --accent-5: #a78bfa;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
   --shadow-soft: 0 16px 60px rgba(0, 0, 0, 0.22);
-  --radius: 8px;
-  --font-head: var(--font-inter-tight);
-  --font-mono: var(--font-jetbrains);
-  --font-body: var(--font-inter);
-}
-
-html.light {
-  color-scheme: light;
-  --bg: #f8fafc;
-  --bg-2: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #f1f5f9;
-  --surface-3: #e2e8f0;
-  --border: rgba(15, 23, 42, 0.1);
-  --border-strong: rgba(15, 23, 42, 0.18);
-  --text: #0f172a;
-  --text-2: #334155;
-  --text-3: #64748b;
-  --muted: #7c8796;
-  --shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
-  --shadow-soft: 0 16px 60px rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -58,8 +63,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(74, 222, 128, 0.045), transparent 360px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.035), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), transparent 260px),
+    linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.045)),
     var(--bg);
   color: var(--text);
   font-family: var(--font-body), Inter, system-ui, sans-serif;
@@ -78,9 +83,10 @@ body::before {
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 78%);
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent 78%);
+  background-size: 96px 96px;
+  opacity: 0.5;
+  mask-image: linear-gradient(to bottom, black, transparent 44%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 44%);
 }
 
 body::after {
@@ -90,7 +96,7 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.024;
+  opacity: 0.016;
 }
 
 button,
@@ -151,7 +157,7 @@ a {
   z-index: 1;
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 112px 0;
+  padding: 92px 0;
 }
 
 .section-heading {
@@ -173,7 +179,7 @@ a {
   margin: 0;
   color: var(--text);
   font-family: var(--font-head), Inter, system-ui, sans-serif;
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
   font-weight: 760;
   letter-spacing: 0;
   line-height: 0.96;
@@ -188,7 +194,7 @@ a {
 
 .surface-card {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 120px),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 48%, transparent), transparent 120px),
     var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -196,7 +202,7 @@ a {
 }
 
 .subtle-card {
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  background: color-mix(in srgb, var(--surface-2) 88%, transparent);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -208,7 +214,7 @@ a {
   min-height: 28px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--surface-2) 82%, transparent);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
   color: var(--text-2);
   font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
