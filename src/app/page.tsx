@@ -17,13 +17,7 @@ export default function Home() {
     telephone: profile.phone,
     url: profile.portfolio,
     sameAs: [profile.github, profile.linkedin],
-    jobTitle: "Software Engineer",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Agra",
-      addressRegion: "UP",
-      addressCountry: "IN",
-    },
+    jobTitle: profile.role,
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "NIT Bhopal",

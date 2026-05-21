@@ -48,8 +48,8 @@ export default function Projects() {
           className="mb-0"
         />
 
-        <Reveal className="flex flex-wrap items-center gap-2">
-          <span className="chip">
+        <Reveal className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-2 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0 lg:pb-0">
+          <span className="chip shrink-0">
             <Filter className="h-3.5 w-3.5" aria-hidden="true" />
             Filter
           </span>
@@ -60,7 +60,7 @@ export default function Projects() {
               onClick={() => setActiveCategory(category)}
               aria-pressed={activeCategory === category}
               className={cn(
-                "rounded-full border px-3 py-1.5 font-mono text-xs transition-colors",
+                "shrink-0 rounded-full border px-3 py-1.5 font-mono text-xs transition-colors",
                 activeCategory === category
                   ? "border-[var(--text)] bg-[var(--text)] text-[var(--bg)]"
                   : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-2)] hover:border-[var(--border-strong)] hover:text-[var(--text)]"
@@ -94,9 +94,9 @@ function FeaturedCase({ project, index }: { project: ProjectCase; index: number 
     <Reveal delay={index * 0.05}>
       <article className="surface-card overflow-hidden" data-accent={project.accent}>
         <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="p-6 md:p-8">
+          <div className="p-4 sm:p-5 md:p-8">
             <CaseHeader project={project} />
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <div className="mt-7 grid gap-5 md:mt-8 md:grid-cols-2">
               <CaseBlock label="Problem" value={project.problem} />
               <CaseBlock label="Solution" value={project.solution} />
             </div>
@@ -116,7 +116,7 @@ function FeaturedCase({ project, index }: { project: ProjectCase; index: number 
             <CaseLinks project={project} />
           </div>
 
-          <div className="border-t border-[var(--border)] bg-[var(--bg-2)] p-5 lg:border-l lg:border-t-0">
+          <div className="border-t border-[var(--border)] bg-[var(--bg-2)] p-4 sm:p-5 lg:border-l lg:border-t-0">
             <SystemVisual project={project} />
             <div className="mt-5">
               <p className="mb-3 font-mono text-xs uppercase text-[var(--text-3)]">Architecture</p>
@@ -141,7 +141,7 @@ function FeaturedCase({ project, index }: { project: ProjectCase; index: number 
 function CompactCase({ project, index }: { project: ProjectCase; index: number }) {
   return (
     <Reveal delay={(index % 2) * 0.05}>
-      <article className="surface-card flex h-full flex-col p-6" data-accent={project.accent}>
+      <article className="surface-card flex h-full flex-col p-4 sm:p-5 md:p-6" data-accent={project.accent}>
         <CaseHeader project={project} compact />
         <div className="mt-6 grid gap-5">
           <CaseBlock label="Problem" value={project.problem} />
@@ -174,9 +174,9 @@ function CaseHeader({ project, compact = false }: { project: ProjectCase; compac
         <span className="chip">{project.year}</span>
         <span className="chip">{project.role}</span>
       </div>
-      <div className="mt-5 flex items-start justify-between gap-5">
+      <div className="mt-5 flex items-start justify-between gap-4 sm:gap-5">
         <div>
-          <h3 className={cn("font-head font-[760] leading-none text-[var(--text)]", compact ? "text-3xl" : "text-4xl md:text-5xl")}>
+          <h3 className={cn("font-head font-[760] leading-none text-[var(--text)]", compact ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl md:text-5xl")}>
             {project.title}
           </h3>
           <p className="mt-3 max-w-2xl text-pretty text-base text-[var(--text-2)]">{project.subtitle}</p>
@@ -207,14 +207,14 @@ function CaseLinks({ project }: { project: ProjectCase }) {
   if (!project.links?.length) return null;
 
   return (
-    <div className="mt-7 flex flex-wrap gap-2">
+    <div className="mt-7 grid gap-2 sm:flex sm:flex-wrap">
       {project.links.map((link) => (
         <a
           key={link.href}
           href={link.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-sm text-[var(--text-2)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text)]"
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-sm text-[var(--text-2)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text)] sm:justify-start"
         >
           {link.label.toLowerCase() === "github" ? <Code2 className="h-4 w-4" aria-hidden="true" /> : <ExternalLink className="h-4 w-4" aria-hidden="true" />}
           {link.label}
@@ -248,25 +248,25 @@ function SystemVisual({ project, compact = false }: { project: ProjectCase; comp
   }[project.visual];
 
   return (
-    <div className={cn("rounded-md border border-[var(--border)] bg-[var(--surface)] p-4", compact && "p-3")}>
-      <div className="mb-4 flex items-center justify-between">
+    <div className={cn("rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 sm:p-4", compact && "p-3")}>
+      <div className="mb-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-[var(--local-accent)]" />
-          <span className="font-mono text-xs text-[var(--text-3)]">{project.id}.system</span>
+          <span className="truncate font-mono text-xs text-[var(--text-3)]">{project.id}.system</span>
         </div>
-        <span className="font-mono text-[10px] text-[var(--text-3)]">prod-minded</span>
+        <span className="shrink-0 font-mono text-[10px] text-[var(--text-3)]">prod-minded</span>
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         {labels.map((label, index) => {
           const Icon = icons[index];
           return (
             <div key={label} className="relative">
-              <div className="grid min-h-[88px] place-items-center rounded-md border border-[var(--border)] bg-[var(--bg-2)] p-3 text-center">
+              <div className="grid min-h-[82px] place-items-center rounded-md border border-[var(--border)] bg-[var(--bg-2)] p-3 text-center sm:min-h-[88px]">
                 <Icon className="mb-3 h-5 w-5 text-[var(--local-accent)]" aria-hidden="true" />
                 <span className="text-[11px] font-medium leading-4 text-[var(--text-2)]">{label}</span>
               </div>
               {index < labels.length - 1 ? (
-                <span className="absolute left-[calc(100%-2px)] top-1/2 z-10 h-px w-4 bg-[var(--local-accent)]" />
+                <span className="absolute left-[calc(100%-2px)] top-1/2 z-10 hidden h-px w-4 bg-[var(--local-accent)] sm:block" />
               ) : null}
             </div>
           );

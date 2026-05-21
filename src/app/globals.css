@@ -160,6 +160,18 @@ a {
   padding: 92px 0;
 }
 
+.hero-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1220px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 92px 0 0;
+}
+
+.hero-proof-grid {
+  border-top: 1px solid var(--border);
+}
+
 .section-heading {
   max-width: 760px;
   margin-bottom: 44px;
@@ -199,6 +211,23 @@ a {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+}
+
+.terminal-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 150px),
+    #0b0f14;
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  color: #e6edf6;
+}
+
+html.dark .terminal-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 150px),
+    #080c11;
+  border-color: rgba(226, 232, 240, 0.1);
 }
 
 .subtle-card {
@@ -361,16 +390,67 @@ a {
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 64px;
+  }
+
+  body::before {
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 54%);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 54%);
   }
 
   .section-shell {
-    width: min(100% - 28px, 1180px);
-    padding: 76px 0;
+    width: min(100% - 24px, 1180px);
+    padding: 64px 0;
+  }
+
+  .hero-shell {
+    width: min(100% - 24px, 1180px);
+    padding: 64px 0 0;
   }
 
   .section-heading {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 9vw, 2.45rem);
+    line-height: 1;
+  }
+
+  .section-description {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .surface-card,
+  .subtle-card,
+  .terminal-card {
+    border-radius: 7px;
+  }
+
+  [cmdk-dialog] {
+    top: 72px;
+    width: calc(100vw - 24px);
+  }
+
+  [cmdk-input] {
+    height: 52px;
+    padding: 0 14px;
+  }
+
+  [cmdk-list] {
+    max-height: min(390px, calc(100vh - 160px));
+  }
+}
+
+@media (max-width: 520px) {
+  .chip {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
   }
 }
 

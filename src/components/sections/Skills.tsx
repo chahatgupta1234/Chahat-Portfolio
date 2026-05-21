@@ -29,7 +29,7 @@ export default function Skills() {
           {skillFluency.map((group, index) => {
             const Icon = groupIcons[index % groupIcons.length];
             return (
-              <article key={group.title} className="surface-card p-5" data-accent={index % 2 === 0 ? "emerald" : "cyan"}>
+              <article key={group.title} className="surface-card p-4 sm:p-5" data-accent={index % 2 === 0 ? "emerald" : "cyan"}>
                 <div className="mb-5 flex items-center gap-3">
                   <div className="grid h-9 w-9 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--local-accent)]">
                     <Icon className="h-4 w-4" aria-hidden="true" />
@@ -64,13 +64,13 @@ export default function Skills() {
           const Icon = groupIcons[index];
           return (
             <Reveal key={group.title} delay={(index % 2) * 0.04}>
-              <article className="surface-card h-full p-6" data-accent={index % 3 === 0 ? "emerald" : index % 3 === 1 ? "cyan" : "amber"}>
-                <div className="flex gap-4">
+              <article className="surface-card h-full p-4 sm:p-5 md:p-6" data-accent={index % 3 === 0 ? "emerald" : index % 3 === 1 ? "cyan" : "amber"}>
+                <div className="flex gap-3 sm:gap-4">
                   <div className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--local-accent)]">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-head text-2xl font-[740] text-[var(--text)]">{group.title}</h3>
+                    <h3 className="font-head text-xl font-[740] leading-tight text-[var(--text)] sm:text-2xl">{group.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[var(--text-2)]">{group.signal}</p>
                   </div>
                 </div>
@@ -95,14 +95,14 @@ export default function Skills() {
 
       <Reveal delay={0.08}>
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="surface-card p-6">
+          <div className="surface-card p-4 sm:p-5 md:p-6">
             <div className="mb-5 flex items-center gap-3">
               <div className="grid h-11 w-11 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--accent-3)]">
                 <GraduationCap className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
                 <p className="font-mono text-xs uppercase text-[var(--text-3)]">Education</p>
-                <h3 className="font-head text-2xl font-[740] text-[var(--text)]">NIT Bhopal · MCA</h3>
+                <h3 className="font-head text-xl font-[740] leading-tight text-[var(--text)] sm:text-2xl">NIT Bhopal · MCA</h3>
               </div>
             </div>
             <div className="grid gap-3">
@@ -117,14 +117,14 @@ export default function Skills() {
             </div>
           </div>
 
-          <div className="surface-card p-6">
+          <div className="surface-card p-4 sm:p-5 md:p-6">
             <div className="mb-5 flex items-center gap-3">
               <div className="grid h-11 w-11 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--accent)]">
                 <Trophy className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
                 <p className="font-mono text-xs uppercase text-[var(--text-3)]">Achievements</p>
-                <h3 className="font-head text-2xl font-[740] text-[var(--text)]">Signals beyond job titles</h3>
+                <h3 className="font-head text-xl font-[740] leading-tight text-[var(--text)] sm:text-2xl">Signals beyond job titles</h3>
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">

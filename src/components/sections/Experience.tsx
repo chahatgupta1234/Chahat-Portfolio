@@ -12,35 +12,34 @@ export default function Experience() {
         description="Each role is framed around the engineering problem, the system shipped, and the impact that made the work matter."
       />
 
-      <div className="space-y-12">
+      <div className="space-y-10 md:space-y-12">
         {experiences.map((experience, experienceIndex) => (
           <Reveal key={`${experience.company}-${experience.period}`} delay={experienceIndex * 0.05}>
-            <article className="grid gap-7 border-t border-[var(--border)] pt-8 lg:grid-cols-[280px_1fr]">
+            <article className="grid gap-6 border-t border-[var(--border)] pt-7 md:gap-7 md:pt-8 lg:grid-cols-[280px_1fr]">
               <aside className="lg:sticky lg:top-24 lg:self-start">
                 <div className="flex items-center gap-2">
                   <span className="accent-dot" />
                   <span className="font-mono text-xs uppercase text-[var(--text-3)]">{experience.badge}</span>
                 </div>
-                <h3 className="mt-4 font-head text-3xl font-[760] leading-none text-[var(--text)]">
+                <h3 className="mt-4 font-head text-2xl font-[760] leading-none text-[var(--text)] sm:text-3xl">
                   {experience.company}
                 </h3>
                 <p className="mt-3 text-sm font-semibold text-[var(--text)]">{experience.role}</p>
                 <p className="mt-1 font-mono text-xs text-[var(--text-3)]">{experience.period}</p>
-                <p className="mt-1 text-sm text-[var(--text-3)]">{experience.location}</p>
                 <p className="mt-5 text-sm leading-6 text-[var(--text-2)]">{experience.context}</p>
                 <p className="mt-5 text-sm leading-6 text-[var(--text-2)]">{experience.summary}</p>
               </aside>
 
               <div className="grid gap-4">
                 {experience.highlights.map((highlight, index) => (
-                  <article key={highlight.title} className="surface-card p-5 md:p-6" data-accent={index % 3 === 0 ? "emerald" : index % 3 === 1 ? "cyan" : "amber"}>
+                  <article key={highlight.title} className="surface-card p-4 sm:p-5 md:p-6" data-accent={index % 3 === 0 ? "emerald" : index % 3 === 1 ? "cyan" : "amber"}>
                     <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                       <div>
                         <div className="mb-3 inline-flex items-center gap-2 font-mono text-xs text-[var(--local-accent)]">
                           <CircleDot className="h-4 w-4" aria-hidden="true" />
                           Case file {String(index + 1).padStart(2, "0")}
                         </div>
-                        <h4 className="font-head text-2xl font-[730] leading-tight text-[var(--text)]">
+                        <h4 className="font-head text-xl font-[730] leading-tight text-[var(--text)] sm:text-2xl">
                           {highlight.title}
                         </h4>
                       </div>

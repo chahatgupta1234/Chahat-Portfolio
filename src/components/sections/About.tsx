@@ -57,7 +57,7 @@ export default function About() {
             const Icon = lens.icon;
             return (
               <Reveal key={lens.title} delay={index * 0.04}>
-                <article className="surface-card h-full p-5">
+                <article className="surface-card h-full p-4 sm:p-5">
                   <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--surface-2)] text-[var(--accent)]">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
@@ -72,24 +72,24 @@ export default function About() {
 
       <Reveal delay={0.1}>
         <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_0.74fr]">
-          <div className="surface-card p-6 md:p-8">
+          <div className="surface-card p-4 sm:p-5 md:p-8">
             <div className="mb-5 flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-md bg-[var(--surface-2)] text-[var(--accent-2)]">
                 <KeyRound className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
                 <p className="font-mono text-xs uppercase text-[var(--text-3)]">Positioning</p>
-                <h3 className="font-head text-2xl font-[740] text-[var(--text)]">Systems-backed product engineering</h3>
+                <h3 className="font-head text-xl font-[740] leading-tight text-[var(--text)] sm:text-2xl">Systems-backed product engineering</h3>
               </div>
             </div>
-            <p className="max-w-3xl text-pretty text-base leading-8 text-[var(--text-2)]">
+            <p className="max-w-3xl text-pretty text-sm leading-7 text-[var(--text-2)] sm:text-base sm:leading-8">
               The strongest thread across Chahat&apos;s work is ownership of operational systems: automating support
               workflows, hardening auth and API paths, adding production observability, and using AI where it compresses
               real investigation work instead of sitting beside the product as a demo.
             </p>
           </div>
 
-          <div className="surface-card p-6 md:p-8">
+          <div className="surface-card p-4 sm:p-5 md:p-8">
             <p className="font-mono text-xs uppercase text-[var(--text-3)]">Fast read</p>
             <ul className="mt-5 space-y-4">
               {recruiterSignals.map((signal) => (

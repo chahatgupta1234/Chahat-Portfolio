@@ -54,7 +54,7 @@ export default function Nav() {
         Skip to content
       </a>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] backdrop-blur-xl">
-        <nav className="mx-auto flex h-16 w-[min(1180px,calc(100%_-_28px))] items-center justify-between gap-4">
+        <nav className="mx-auto flex h-14 w-[min(1180px,calc(100%_-_24px))] items-center justify-between gap-3 sm:h-16 sm:w-[min(1180px,calc(100%_-_28px))] sm:gap-4">
           <a href="#hero" className="group flex items-center gap-3" aria-label="Chahat Gupta home">
             <span className="grid h-8 w-8 place-items-center rounded-md border border-[var(--border-strong)] bg-[var(--surface)] font-head text-sm font-black text-[var(--text)]">
               CG
@@ -83,7 +83,7 @@ export default function Nav() {
             })}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               type="button"
               onClick={() => setPaletteOpen(true)}
@@ -126,7 +126,7 @@ export default function Nav() {
           )}
         >
           <div className="overflow-hidden">
-            <div className="mx-auto flex w-[min(1180px,calc(100%_-_28px))] flex-col gap-1 py-3">
+            <div className="mx-auto flex w-[min(1180px,calc(100%_-_24px))] flex-col gap-1 py-3 sm:w-[min(1180px,calc(100%_-_28px))]">
               {navigation.map((item) => (
                 <a
                   key={item.href}

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Chahat Gupta",
   },
   description:
-    "Chahat Gupta is a Software Engineer at Yellow.ai building backend systems, production AI workflows, internal tools, APIs, auth, reliability pipelines, and full-stack products.",
+    "Chahat Gupta is a Backend + AI Engineer at Yellow.ai building backend systems, production AI workflows, internal tools, APIs, auth, reliability pipelines, and full-stack products.",
   keywords: [
     "Chahat Gupta",
     "Backend Engineer",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chahat Gupta - Backend, Full-stack, and AI Engineer",
     description:
-      "Software Engineer at Yellow.ai building production AI systems, backend platforms, and full-stack products.",
+      "Backend + AI Engineer at Yellow.ai building production AI systems, backend platforms, and full-stack products.",
   },
   robots: {
     index: true,

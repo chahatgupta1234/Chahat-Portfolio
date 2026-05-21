@@ -23,7 +23,6 @@ export type Experience = {
   company: string;
   role: string;
   period: string;
-  location: string;
   context: string;
   badge: string;
   summary: string;
@@ -52,15 +51,13 @@ export const profile = {
   name: "Chahat Gupta",
   email: "chahatnit@gmail.com",
   phone: "+91-6395770326",
-  location: "Agra, UP",
-  mobility: "Relocating to Bangalore · Remote-ready",
   github: "https://github.com/chahatgupta1234",
   linkedin: "https://www.linkedin.com/in/chahat-nit",
   portfolio: "https://chahat-portfolio-eight.vercel.app",
-  role: "Software Engineer",
+  role: "Backend + AI Engineer",
   headline: "Backend, full-stack, and AI engineer building production systems at Yellow.ai.",
   subhead:
-    "I build the machinery behind AI products: LangGraph agents, FastMCP tool servers, Slack automation platforms, production APIs, auth boundaries, PostgreSQL schemas, reliability pipelines, and user-facing Next.js systems.",
+    "I build LangGraph agents, FastMCP tools, Slack automation, production APIs, auth boundaries, PostgreSQL schemas, and reliability pipelines for real support workflows.",
   availability:
     "Targeting SDE-1, Backend, Full-stack, Product Engineer, and Applied AI roles at product-first startups.",
   education: "MCA, NIT Bhopal · CGPA 8.9 · NIMCET 2022 AIR 360",
@@ -125,7 +122,6 @@ export const experiences: Experience[] = [
     company: "Yellow.ai",
     role: "Software Engineer",
     period: "Sep 2025 - Present",
-    location: "Remote",
     context: "Series E conversational AI SaaS · Promoted from Intern",
     badge: "Current",
     summary:
@@ -196,7 +192,6 @@ export const experiences: Experience[] = [
     company: "Yellow.ai",
     role: "Software Engineer Intern",
     period: "Jan 2025 - Aug 2025",
-    location: "Remote",
     context: "Conversational AI SaaS · converted to full-time",
     badge: "Internship",
     summary:
@@ -251,7 +246,6 @@ export const experiences: Experience[] = [
     company: "IBM SkillsBuild",
     role: "AI/ML Intern",
     period: "Jun 2024 - Jul 2024",
-    location: "Remote",
     context: "Medical AI system · team lead",
     badge: "AI/ML",
     summary:

@@ -1,4 +1,4 @@
-import { ArrowUpRight, BriefcaseBusiness, Code2, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Code2, Mail, Phone } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { profile, targetRoles } from "@/data/portfolio";
@@ -31,7 +31,7 @@ export default function Contact() {
     <section id="contact" className="section-shell pb-16">
       <div className="surface-card overflow-hidden">
         <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="p-6 md:p-10">
+          <div className="p-4 sm:p-5 md:p-10">
             <SectionHeading
               eyebrow="Contact"
               title="Useful for teams building backend-heavy products and AI workflows."
@@ -50,10 +50,10 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-8 grid gap-3 sm:mt-10 sm:flex sm:flex-wrap">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="inline-flex items-center gap-2 rounded-md bg-[var(--text)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--text)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition-transform hover:-translate-y-0.5"
                 >
                   <Mail className="h-4 w-4" aria-hidden="true" />
                   Email Chahat
@@ -62,7 +62,7 @@ export default function Contact() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition-colors hover:border-[var(--text-3)]"
+                  className="inline-flex items-center justify-center gap-2 rounded-md border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition-colors hover:border-[var(--text-3)]"
                 >
                   LinkedIn
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -71,7 +71,7 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.08} className="border-t border-[var(--border)] bg-[var(--bg-2)] p-6 md:p-10 lg:border-l lg:border-t-0">
+          <Reveal delay={0.08} className="border-t border-[var(--border)] bg-[var(--bg-2)] p-4 sm:p-5 md:p-10 lg:border-l lg:border-t-0">
             <div className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
               {contactLinks.map((link) => {
                 const Icon = link.icon;
@@ -94,10 +94,9 @@ export default function Contact() {
             </div>
 
             <div className="mt-6">
-              <p className="font-mono text-xs uppercase text-[var(--text-3)]">Location</p>
-              <p className="mt-3 flex items-center gap-2 text-sm text-[var(--text-2)]">
-                <MapPin className="h-4 w-4 text-[var(--accent-2)]" aria-hidden="true" />
-                {profile.location} · {profile.mobility}
+              <p className="font-mono text-xs uppercase text-[var(--text-3)]">Hiring signal</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--text-2)]">
+                Backend, full-stack, product engineering, and applied AI roles at product-first teams.
               </p>
             </div>
           </Reveal>
